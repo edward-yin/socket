@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 		bzero(buffer,BUF_SIZE);
 	}
 	
-	printf("success");
+	printf("file transfer succeed!\n");
 	
 	fclose(fp);
 	close(clnt_sock);

@@ -34,7 +34,7 @@ int main()
 	
 	printf("====waiting for client's request====\n");
 	
-	char *filename = "test.txt";
+	char *filename = "client2.c";
 	char buffer[BUF_SIZE];
 	FILE *fp = fopen(filename,"r");
 	struct sockaddr_in clnt_addr;
@@ -54,8 +54,8 @@ int main()
 		bzero(buffer,BUF_SIZE);
 		int filel = 0;
 		
-		while(filel = fread(buffer,1,BUF_SIZE,fp)>0){
-			printf("file length = %d\n",filel);
+		while((filel = fread(buffer,1,BUF_SIZE,fp)) > 0){
+			printf("file length = %d\n",filel); 
 			
 			if (send(clnt_sock,buffer,filel,0) < 0){
 				printf("send error\n : %s(errno:%d)\n",strerror(errno),errno);
